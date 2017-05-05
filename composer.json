@@ -1,0 +1,21 @@
+{
+  "name": "brisum/wordpress-module-theme",
+  "description": "Wordpress module theme",
+  "keywords": [
+    "wordpress"
+  ],
+  "homepage": "https://github.com/brisum/wordpress-module-theme",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Oleksandr Manchenko",
+      "email": "omanchenko@brisum.com",
+      "homepage": "http://brisum.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Brisum\\Wordpress\\Theme\\": "src/"
+    }
+  }
+}
