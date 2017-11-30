@@ -11,7 +11,20 @@ class Action
      */
     public function __construct()
     {
+        add_action('template_redirect', [$this, 'actionTemplateRedirect'], 0);
         add_action('pre_get_posts', [$this, 'actionPreGetPosts']);
+    }
+
+    /**
+     * @return void
+     */
+    public function actionTemplateRedirect() {
+        if (!empty($_REQUEST['tpl-part']) ) {
+            header("X-Robots-Tag: noindex, nofollow", true);
+            get_template_part($_REQUEST['tpl-part']);
+            die;
+
+        }
     }
 
     /**
@@ -26,6 +39,10 @@ class Action
 
         if (isset($_REQUEST['post_type'])) {
             $query->set('post_type', $_REQUEST['post_type']);
+        }
+
+        if (isset($_REQUEST['post__in'])) {
+            $query->set('post__in', array_unique(array_filter(array_map('intval', explode(',', $_REQUEST['post__in'])))));
         }
 
         if (isset($_REQUEST['posts_per_page'])) {
