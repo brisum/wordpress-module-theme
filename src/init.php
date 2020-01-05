@@ -2,4 +2,5 @@
 
 use Brisum\Lib\ObjectManager;
 
-ObjectManager::getInstance()->create('Brisum\Wordpress\Module\Theme\Plugin\Action');
+ObjectManager::getInstance()->create('Brisum\Wordpress\Theme\Plugin\ActionWpQuery');
+ObjectManager::getInstance()->create('Brisum\Wordpress\Theme\Plugin\ActionTemplatePart');
